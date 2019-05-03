@@ -1,0 +1,118 @@
+﻿<Page x:Class="StudentSocial.GUI.PLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentSocial.GUI"
+      mc:Ignorable="d" 
+      Background="White"
+      FontFamily="Arial"
+      FontSize="16"
+      d:DesignHeight="600" d:DesignWidth="550"
+      Title="Đăng nhập" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style x:Key="stext" TargetType="Label">
+            <Setter Property="Foreground" Value="#1abc9c"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style x:Key="sicon" TargetType="Label">
+            <Setter Property="Foreground" Value="#1abc9c"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+        </Style>
+    </Page.Resources>
+    <Border>
+        <Border.Background>
+            <SolidColorBrush Color="#fff"/>
+        </Border.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <!--Login-->
+            <StackPanel VerticalAlignment="Center"
+                        Grid.Column="0" 
+                        Width="355">
+                <Label Content="Student Social"
+                       HorizontalAlignment="Center"
+                       Foreground="#1abc9c"
+                       FontWeight="Bold"
+                       FontSize="50"/>
+                <Label Content="Nhanh chóng - An toàn - Tiện lợi"
+                       HorizontalAlignment="Center"
+                       Foreground="#1abc9c"
+                       FontWeight="UltraBold"
+                       FontStyle="Italic"
+                       FontSize="13"/>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 5">
+                    <Label Content="&#xEA8C;"
+                           Style="{StaticResource sicon}"/>
+                    <Label Content="Mã sinh viên"
+                       Style="{StaticResource stext}"/>
+                </StackPanel>
+                <TextBox
+                        Name="txtCode"
+                        FontSize="16"
+                         Padding="10"
+                         Background="#FF497676"
+                         Foreground="#fff"
+                         Text=""
+                         Margin="0 0 0 20"
+                         BorderBrush="#fff"/>
+                <StackPanel Orientation="Horizontal"
+                             Margin="0 5">
+                    <Label Content="&#xE83D;"
+                           Style="{StaticResource sicon}"/>
+                    <Label Content="Mật khẩu"
+                       Style="{StaticResource stext}"/>
+                </StackPanel>
+                <PasswordBox
+                        x:Name="txtPass"
+                        FontSize="16"
+                         Padding="10"
+                         Background="#FF497676"
+                         Foreground="#fff"
+                         Password=""
+                         Margin="0 0 0 20"
+                         BorderBrush="#fff"/>
+                <StackPanel Margin="0" Orientation="Horizontal"
+                            Visibility="Collapsed">
+                    <CheckBox x:Name="chkDieuKhoan"
+                              IsChecked="True"
+                              Checked="ChkDieuKhoan_Checked"
+                              Unchecked="ChkDieuKhoan_Unchecked"
+                              FontSize="16"
+                              VerticalAlignment="Center"
+                              Content="Tôi đã đọc và đồng ý với"/>
+                    <Label x:Name="lblDieuKhoan"
+                           Content="điều khoản"
+                           FontSize="16"
+                           MouseDown="LblDieuKhoan_MouseDown"
+                           Foreground="Blue"
+                           Cursor="Hand"
+                           FontStyle="Italic"/>
+                </StackPanel>
+                <Button Click="BtnLogin_Click"
+                        IsEnabled="true"
+                        x:Name="btnLogin"
+                        Content="Đăng nhập"
+                        Foreground="#fff"
+                        Background="#1ab394"
+                        Padding="0 10"
+                        BorderBrush="#fff"
+                        Margin="0 20" Cursor="Hand"/>
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Label x:Name="lblStatus"
+                           Content=""
+                           Foreground="Blue"
+                           HorizontalAlignment="Center"
+                           FontSize="16"
+                           FontWeight="Medium"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>

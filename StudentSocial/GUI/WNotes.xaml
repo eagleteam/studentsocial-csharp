@@ -1,0 +1,62 @@
+﻿<Window x:Class="StudentSocial.GUI.WNotes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentSocial.GUI"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="WNotes" Height="450" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Thêm Ghi Chú"
+                   Background="#1abc9c"
+                   Foreground="White"
+                   FontSize="20"
+                   TextAlignment="Center"
+                   Padding="10 5"
+                   />
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Top"
+                    Margin="10">
+            <TextBlock Text="Tiêu đề"
+                       Foreground="#1abc9c"
+                       FontSize="18"/>
+            <TextBox Padding="10"
+                     FontSize="16"/>
+            <TextBlock Text="Nội dung"
+                       Name="txtTieuDe"
+                       Foreground="#1abc9c"
+                       FontSize="18"/>
+            <RichTextBox Padding="10"
+                     Name="txtNoiDung"
+                     FontSize="16"
+                     Height="220"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Xác Nhận"
+                        FontSize="16"
+                        Padding="5"
+                        Grid.Column="0"
+                        Margin="0 5 5 5"
+                        Foreground="White"
+                        Name="btnXacNhan"
+                        Background="#1abc9c"/>
+                <Button Content="Hủy"
+                        Name="btnHuy"
+                        FontSize="16"
+                        Padding="5"
+                        Grid.Column="1"
+                        Margin="5 5 0 5"
+                        Foreground="White"
+                        Background="Red"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

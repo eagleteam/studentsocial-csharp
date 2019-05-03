@@ -1,0 +1,206 @@
+﻿<Page x:Class="StudentSocial.GUI.PSetting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentSocial.GUI"
+      mc:Ignorable="d" 
+      Background="White"
+      FontFamily="Arial"
+      Loaded="Page_Loaded"
+      d:DesignHeight="600" d:DesignWidth="650"
+      Title="Cài đặt">
+    <Page.Resources>
+        <Style TargetType="Label" x:Key="menu">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0 0"/>
+        </Style>
+        <Style TargetType="Label" x:Key="lich">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Label" x:Key="title">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="#1abc8c"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="CheckBox" x:Key="check">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="20 0"/>
+        </Style>
+    </Page.Resources>
+    <StackPanel Margin="10">
+        <StackPanel>
+            <Label Content="Khởi động cùng máy tính"
+                   Style="{StaticResource menu}"/>
+            <CheckBox Content="Off"
+                      Tag="khoidong"
+                      Style="{StaticResource check}"
+                      x:Name="chkStart"
+                      Checked="ChkStart_Checked"
+                      Unchecked="ChkStart_Unchecked"/>
+        </StackPanel>
+        <StackPanel>
+            <Label Content="Thông báo lịch học ngày mai"
+                   Style="{StaticResource menu}"/>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Content="Off"
+                      Style="{StaticResource check}"
+                      x:Name="chkNoti"
+                      Tag="thongbao"
+                          VerticalAlignment="Center"
+                      Checked="ChkStart_Checked"
+                      Unchecked="ChkStart_Unchecked"/>
+                <Label 
+                    FontSize="16"
+                    VerticalAlignment="Center"
+                    Content="(Thay đổi sẽ được áp dụng vào lần mở kế tiếp)"/>
+                <Label Content="Khởi động luôn"
+                       x:Name="khoidong"
+                       Visibility="Collapsed"
+                       MouseDown="Khoidong_MouseDown"
+                       Foreground="Blue"
+                       Cursor="Hand"
+                       FontSize="16"
+                       VerticalAlignment="Center"
+                       FontStyle="Oblique"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="spnlAmThanh" Visibility="Visible">
+            <Label Content="Âm thanh thông báo"
+                   Style="{StaticResource menu}"/>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 5">
+                <RadioButton Unchecked="RadMacDinh_Unchecked" Checked="RadMacDinh_Checked" x:Name="radMacDinh" Content="Mặc định" FontSize="16" Margin="10 0" Tag="macdinh"/>
+                <RadioButton Unchecked="RadMacDinh_Unchecked" Checked="RadMacDinh_Checked" x:Name="radGiongNoi" Content="Giọng nói" FontSize="16" Margin="10 0" Tag="giongnoi"/>
+                <RadioButton Unchecked="RadMacDinh_Unchecked" Checked="RadMacDinh_Checked" x:Name="radTuyChinh" Content="Tùy chỉnh" FontSize="16" Margin="10 0" Tag="tuychinh"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" x:Name="spnlChonFile">
+                <Label Content="Ngày học"
+                       FontSize="14"
+                       Width="70"
+                       VerticalAlignment="Center"/>
+                <TextBox x:Name="txtAmThanh" Text=""
+                         FontSize="12"
+                         Height="30"
+                         VerticalContentAlignment="Center"
+                         Width="110"
+                         Padding="5 0"
+                         Margin="10 0"/>
+                <Button Content="Chọn file" FontSize="14"
+                        Background="#1abc9c"
+                        Padding="5 0"
+                        Tag="hoc"
+                        Width="75"
+                        Click="Button_Click"
+                        Foreground="#fff"/>
+                <Label Content="Ngày nghỉ"
+                       FontSize="14"
+                       Width="75"
+                       VerticalAlignment="Center"/>
+                <TextBox x:Name="txtAmThanh2" Text=""
+                         FontSize="12"
+                         Height="30"
+                         VerticalContentAlignment="Center"
+                         Width="110"
+                         Padding="5 0"
+                         Margin="10 0"/>
+                <Button Content="Chọn file" FontSize="14"
+                        Background="#1abc9c"
+                        Tag="nghi"
+                        Padding="5 0"
+                        Width="75"
+                        Click="Button_Click"
+                        Foreground="#fff"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel>
+            <Label Content="Thời gian ra vào lớp"
+                   Style="{StaticResource menu}"/>
+            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label FontSize="16"
+                   Content="Lịch mùa HÈ bắt đầu từ: 15/4"/>
+                <Label Content="|" FontSize="16"/>
+                <Label FontSize="16"
+                   Content="Lịch mùa ĐÔNG bắt đầu từ: 15/10"/>
+            </StackPanel>-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Content="Tiết" Style="{StaticResource title}"/>
+                <Label Grid.Column="1" Grid.Row="0" Content="Mùa hè (15/04)" Style="{StaticResource title}"/>
+                <Label Grid.Column="2" Grid.Row="0" Content="Mùa đông (15/10)" Style="{StaticResource title}"/>
+                
+                <Label Grid.Column="0" Grid.Row="1" Content="1" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="1" Content="06:30 - 07:20" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="1" Content="06:45- 07:35" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="2" Content="2" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="2" Content="07:25 - 08:15" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="2" Content="07:40- 08:30" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="3" Content="3" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="3" Content="08:25 - 09:15" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="3" Content="08:40- 09:30" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="4" Content="4" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="4" Content="09:25 - 10:15" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="4" Content="09:40- 10:30" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="5" Content="5" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="5" Content="10:20 - 11:10" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="5" Content="10:35- 11:25" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="6" Content="6" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="6" Content="13:00 - 13:50" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="6" Content="13:00 - 13:50" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="7" Content="7" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="7" Content="13:55 - 14:55" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="7" Content="13:55 - 14:55" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="8" Content="8" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="8" Content="14:55 - 15:45" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="8" Content="14:55 - 15:45" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="9" Content="9" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="9" Content="15:55 - 16:45" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="9" Content="15:55 - 16:45" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="10" Content="10" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="10" Content="16:50 - 17:40" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="10" Content="16:50 - 17:40" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="11" Content="11" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="11" Content="18:15 - 19:05" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="11" Content="18:15 - 19:05" Style="{StaticResource lich}"/>
+
+                <Label Grid.Column="0" Grid.Row="12" Content="12" Style="{StaticResource lich}"/>
+                <Label Grid.Column="1" Grid.Row="12" Content="19:10 - 20:00" Style="{StaticResource lich}"/>
+                <Label Grid.Column="2" Grid.Row="12" Content="19:10 - 20:00" Style="{StaticResource lich}"/>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Page>

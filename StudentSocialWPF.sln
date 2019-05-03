@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSocial", "StudentSocial\StudentSocial.csproj", "{01A6D4F2-8C99-4495-A8B4-144751E3990E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupStudentSocial", "SetupStudentSocial\SetupStudentSocial.vdproj", "{862F54E9-3969-45F0-A810-0CF7B6625787}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01A6D4F2-8C99-4495-A8B4-144751E3990E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A6D4F2-8C99-4495-A8B4-144751E3990E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A6D4F2-8C99-4495-A8B4-144751E3990E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A6D4F2-8C99-4495-A8B4-144751E3990E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{862F54E9-3969-45F0-A810-0CF7B6625787}.Debug|Any CPU.ActiveCfg = Debug
+		{862F54E9-3969-45F0-A810-0CF7B6625787}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8AB59B77-2F5D-450A-A657-4F33B92281E5}
+	EndGlobalSection
+EndGlobal

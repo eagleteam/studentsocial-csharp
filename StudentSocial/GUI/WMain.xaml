@@ -1,0 +1,158 @@
+﻿<Window x:Class="StudentSocial.GUI.WMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentSocial.GUI"
+        mc:Ignorable="d"
+        FontFamily="Arial"
+        MinHeight="600"
+        MinWidth="500"
+        Title="Student Social" Height="600" Width="850" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Closing="Window_Closing" Icon="/StudentSocial;component/Image/ssicon.ico">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="lblMenu">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="10 0"/>
+        </Style>
+        <Style TargetType="Image" x:Key="imgMenu">
+            <Setter Property="Margin" Value="10 0"/>
+            <Setter Property="Width" Value="26"/>
+            <Setter Property="Height" Value="auto"/>
+        </Style>
+        <Style TargetType="ListBoxItem" x:Key="Menu">
+            <Setter Property="Padding" Value="0 14"/>
+        </Style>
+        <ContextMenu x:Key="cmNoti">
+            <MenuItem Header="Tắt âm thanh thông báo"
+                      Tag="music"
+                      Click="MenuItem_Click">
+                <MenuItem.Icon>
+                    <Image Source="../Image/mute.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator/>
+            <MenuItem Header="Mở Student Social"
+                      Click="MenuItem_Click_1">
+                <MenuItem.Icon>
+                    <Image Source="../Image/open.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <Separator/>
+            <MenuItem Header="Kết thúc"
+                      Tag="exit"
+                      Click="MenuItem_Click">
+                <MenuItem.Icon>
+                    <Image Source="../Image/exit.ico"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </ContextMenu>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+            <!--<ColumnDefinition Width="1*"/>-->
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="#1abc9c"
+                    BorderThickness="1"
+                    Grid.Column="0">
+            <StackPanel>
+                <StackPanel Height="150"
+                        Background="#1abc9c">
+                    <Image Source="../Image/ss.png"
+                       Width="80"
+                       Margin="0 10"/>
+                    <TextBlock x:Name="tbName"
+                           Text="Student Social"
+                           HorizontalAlignment="Center"
+                           FontSize="16"
+                           Foreground="#fff"
+                           Margin="5"/>
+                    <TextBlock x:Name="tbClass"
+                           Text="Chào cậu ^_^"
+                           HorizontalAlignment="Center"
+                           FontSize="16"
+                           Foreground="#fff"/>
+                </StackPanel>
+                <ListBox x:Name="lboxMenu"
+                         Cursor="Hand"
+                     BorderThickness="0"
+                         SelectionChanged="LboxMenu_SelectionChanged"
+                         x:FieldModifier="public"
+                         >
+                    <ListBoxItem Tag="time"
+                             Style="{StaticResource Menu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Image/time.png"
+                               Style="{StaticResource imgMenu}"/>
+                            <Label Content="Thời khóa biểu"
+                               Style="{StaticResource lblMenu}"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Tag="mark"
+                             Style="{StaticResource Menu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Image/mark.png"
+                               Style="{StaticResource imgMenu}"/>
+                            <Label Content="Bảng điểm"
+                               Style="{StaticResource lblMenu}"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Tag="update"
+                             Style="{StaticResource Menu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Image/update.png"
+                               Style="{StaticResource imgMenu}"/>
+                            <Label Content="Cập nhật lịch"
+                               Style="{StaticResource lblMenu}"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Tag="notifb"
+                             Visibility="Collapsed"
+                             Style="{StaticResource Menu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Image/noti.png"
+                               Style="{StaticResource imgMenu}"/>
+                            <Label Content="Thông báo Facebook"
+                               Style="{StaticResource lblMenu}"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Tag="support"
+                             Style="{StaticResource Menu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Image/sp.png"
+                               Style="{StaticResource imgMenu}"/>
+                            <Label Content="Hỗ trợ"
+                               Style="{StaticResource lblMenu}"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Tag="logout"
+                                 x:Name="btnLogout"
+                             Style="{StaticResource Menu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Image/logout.png"
+                               Style="{StaticResource imgMenu}"/>
+                            <Label Content="Đăng xuất"
+                               Style="{StaticResource lblMenu}"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Tag="setting"
+                             Style="{StaticResource Menu}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Image/setting.png"
+                               Style="{StaticResource imgMenu}"/>
+                            <Label Content="Thiết lập / Xem thêm"
+                               Style="{StaticResource lblMenu}"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </StackPanel>
+        </Border>
+        <Frame Grid.Column="1"
+               x:Name="viewMain"
+               JournalOwnership="UsesParentJournal">
+        </Frame>
+        <!--<Button Grid.Column="2" Click="Button_Click"/>-->
+    </Grid>
+</Window>

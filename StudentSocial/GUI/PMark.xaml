@@ -1,0 +1,146 @@
+﻿<Page x:Class="StudentSocial.GUI.PMark"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentSocial.GUI"
+      mc:Ignorable="d" 
+      Background="White"
+      d:DesignHeight="600" d:DesignWidth="650"
+      FontFamily="Arial"
+      FontSize="16"
+      Title="Điểm học tập" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style TargetType="Label" x:Key="lblSub">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="Label" x:Key="lblNum">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="15 0"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#1abc9c"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Background="#1abc9c" Height="100" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="0" Grid.Row="0">
+                <Label Content="Tổng số TC: "
+                       Style="{StaticResource lblSub}"/>
+                <Label x:Name="lblTongTC" Content="0"
+                       Style="{StaticResource lblNum}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="0" Grid.Row="1">
+                <Label Content="Số môn không đạt: "
+                       Style="{StaticResource lblSub}"/>
+                <Label x:Name="lblMonKhongDat" Content="0"
+                       Style="{StaticResource lblNum}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="0" Grid.Row="2">
+                <Label Content="STC không đạt: "
+                       Style="{StaticResource lblSub}"/>
+                <Label x:Name="lblTCKhongDat" Content="0"
+                       Style="{StaticResource lblNum}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1" Grid.Row="1">
+                <Label Content="STCTD: "
+                       Style="{StaticResource lblSub}"/>
+                <Label x:Name="lblSTCTD" Content="0"
+                       Style="{StaticResource lblNum}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1" Grid.Row="2">
+                <Label Content="STCTLN: "
+                       Style="{StaticResource lblSub}"/>
+                <Label x:Name="lblSTCTLN" Content="0"
+                       Style="{StaticResource lblNum}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="2" Grid.Row="1">
+                <Label Content="DTBC: "
+                       Style="{StaticResource lblSub}"/>
+                <Label x:Name="lblDTBC" Content="0"
+                       Style="{StaticResource lblNum}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="2" Grid.Row="2">
+                <Label Content="DTBCQD: "
+                       Style="{StaticResource lblSub}"/>
+                <Label x:Name="lblDTBCQD" Content="0"
+                       Style="{StaticResource lblNum}"/>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal"
+                    Background="#3498db">
+            <Label Content="Lọc điểm:"
+                   Foreground="DarkViolet"
+                   FontSize="16"
+                   Margin="0 0 10 0"/>
+            <RadioButton Cursor="Hand" x:Name="rdAll" Content="Tất cả" Tag="ALL" IsChecked="False" Checked="RadioButton_Checked"/>
+            <RadioButton Cursor="Hand" Foreground="Blue" Content="A" Tag="A" Checked="RadioButton_Checked"/>
+            <RadioButton Cursor="Hand" Foreground="MidnightBlue" Content="B" Tag="B" Checked="RadioButton_Checked"/>
+            <RadioButton Cursor="Hand" Foreground="BlueViolet" Content="C" Tag="C" Checked="RadioButton_Checked"/>
+            <RadioButton Cursor="Hand" Foreground="Black" Content="D" Tag="D" Checked="RadioButton_Checked"/>
+            <RadioButton Cursor="Hand" Foreground="Red" Content="F" Tag="F" Checked="RadioButton_Checked"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="2">
+            <StackPanel x:Name="spnlView">
+                <!--<ListView x:Name="lvMark" Width="650">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding MaMon}"
+                                           Grid.ColumnSpan="3"
+                                           Grid.Column="0"
+                                           Grid.Row="0"/>
+                                <TextBlock Text="CC" Grid.Column="0" Grid.Row="1"/>
+                                <TextBlock Text="THI" Grid.Column="1" Grid.Row="1"/>
+                                <TextBlock Text="TKHP" Grid.Column="2" Grid.Row="1"/>
+                                <TextBlock Text="XL" Grid.Column="3" Grid.Row="1"/>
+                                <TextBlock Text="{Binding CC}" Grid.Column="0" Grid.Row="2"/>
+                                <TextBlock Text="{Binding THI}" Grid.Column="1" Grid.Row="2"/>
+                                <TextBlock Text="{Binding TKHP}" Grid.Column="2" Grid.Row="2"/>
+                                <TextBlock Text="{Binding DiemChu}" Grid.Column="3" Grid.Row="2"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
